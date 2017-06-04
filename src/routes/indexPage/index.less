@@ -1,0 +1,123 @@
+//:global(.tabs-container) {
+//  color: #ddd;
+//  :global(.am-tabs-tab) {
+//    font-size: 20px;
+//  }
+//}
+
+.my-carousel {
+  background: #fff;
+
+  .am-carousel-wrap {}
+}
+
+.my-carousel a {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.my-carousel a img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.my-carousel .v-item {
+  height: 0.72rem;
+  line-height: 0.72rem;
+  padding-left: 0.2rem;
+}
+
+.menu-container {
+  height: 100%;
+  display: flex;
+  height: 100%;
+
+  :global(.am-indexed-list-quick-search-bar) {
+    width: 170px;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+
+    li {
+      padding: 35px 15px;
+    }
+  }
+
+  :global(.am-indexed-list-container) {
+    overflow-y: scroll;
+    height: 100%;
+    flex-direction: row-reverse;
+    display: flex;
+  }
+}
+
+.index-container {
+  height: 100%;
+}
+
+.menu-nav {
+  font-size: 14;
+  background: #efefef;
+  height: 100%;
+  overflow-y: scroll;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 170px;
+    text-align: center;
+
+    li {
+      font-size: 25px;
+      padding: 35px 15px;
+      border-bottom: 1px solid #bfbfbf;
+    }
+
+    .active {
+      background: #fff;
+    }
+  }
+}
+
+.list-content {
+  flex: 1;
+  height: 100%;
+  overflow-y: scroll;
+
+  .food-title {
+    font-weight: 400;
+  }
+
+  .food-sign {
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 3px 10px;
+      font-size: 20px;
+      border: 1px solid #f00;
+      color: #f00;
+    }
+  }
+
+  .food-info {
+    color: #a9a9a9;
+    font-size: 22px;
+    padding: 5px 0;
+  }
+
+  .food-price {
+    color: #fe4d3d;
+  }
+
+  .food-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+:global(.am-stepper.showNumber .am-stepper-handler-down-disabled) {
+  display: none;
+}

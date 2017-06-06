@@ -39,7 +39,7 @@ const foodList = [
     entries: [
       {
         id: '63306642',
-        name: "王道椒香鸡腿",
+        name: "王椒香鸡腿",
         price: 11,
         descripiton: '',
         tag: ['新品'],
@@ -53,6 +53,27 @@ const foodList = [
         pic: ''
       }, {
         id: '63516541',
+        name: "霸王鸡条",
+        price: 11,
+        descripiton: '',
+        tag: ['新品'],
+        pic: ''
+      }, {
+        id: '63536541',
+        name: "霸王鸡条",
+        price: 11,
+        descripiton: '',
+        tag: ['新品'],
+        pic: ''
+      }, {
+        id: '63586541',
+        name: "霸王鸡条",
+        price: 11,
+        descripiton: '',
+        tag: ['新品'],
+        pic: ''
+      }, {
+        id: '63576541',
         name: "霸王鸡条",
         price: 11,
         descripiton: '',

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'dva/router';
 import {List} from 'antd-mobile';
 import Stepper from '../../components/Stepper';
 import style from './index.less'
@@ -22,6 +23,7 @@ class ListItem extends React.Component {
         align="top"
         thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
         multipleLine>
+        <Link to={`detail/${dataSource.id}`}>
         <div className={style['food-title']}>
           {dataSource.name}
         </div>
@@ -31,6 +33,7 @@ class ListItem extends React.Component {
         <div className={style['food-info']}>
           {dataSource.descripiton}
         </div>
+        </Link>
         <div className={style['food-bottom']}>
           <div className={style['food-price']}>
             {'￥' + dataSource.price}

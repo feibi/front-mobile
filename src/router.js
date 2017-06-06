@@ -1,9 +1,11 @@
 import React from 'react';
-import {Router, Route, IndexRoute} from 'dva/router';
-import IndexPage from './routes/indexPage';
-import App from './routes/app';
+import {applyRouterMiddleware, Router, Route, IndexRoute} from 'dva/router';
+import {useScroll} from 'react-router-scroll';
+import List from './routes/list';
+import Layout from './components/Layout/';
 import Order from './routes/order'
 import Detail from './routes/detail'
+import Checkout from './routes/checkout'
 
 const cached = {};
 function registerModel(app, model) {
@@ -14,12 +16,17 @@ function registerModel(app, model) {
 }
 function RouterConfig({history, app}) {
   return (
-    <Router history={history}>
-      <Route path='/' component={App}>
-        <IndexRoute component={IndexPage} />
-        <Route path='/detail' component={Detail}/>
+    <Router
+      history={history}
+      render={applyRouterMiddleware(useScroll())}>
+      <Route path='/' component={Layout}>
+        <IndexRoute component={List}/>
+        <Route path='list' component={List}/>
+        <Route path='detail/:id' component={Detail}/> {/* <Route component={Wrap}>  </Route> */}
+        <Route path='checkout' component={Checkout}/>
       </Route>
-    </Router>)
+    </Router>
+  )
 }
 
 export default RouterConfig;

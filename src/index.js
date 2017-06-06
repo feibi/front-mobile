@@ -7,7 +7,7 @@ import createLoading from 'dva-loading';
 
 // 1. Initialize
 const app = dva({
-  //history: browserHistory,
+  history: browserHistory,
 });
 
 // 2. Plugins

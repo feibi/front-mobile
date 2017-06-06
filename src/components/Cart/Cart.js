@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'dva';
 import {Badge, Popup} from 'antd-mobile';
 import style from './style/index.less'
 import classNames from 'classnames/bind';
@@ -20,7 +21,9 @@ class Cart extends React.Component {
 
   static propTypes = {
     cart: PropTypes.array,
-    handleChange: PropTypes.func
+    history: PropTypes.object,
+    handleChange: PropTypes.func,
+    toOrder: PropTypes.func
   }
   constructor(props) {
     super(props);
@@ -51,7 +54,12 @@ class Cart extends React.Component {
   showCartList = (e) => {
     e.preventDefault(); // 修复 Android 上点击穿透
     let {cart} = this.props;
-
+    let cartProps = {
+      cart,
+      clearAll: this.handleClearAll,
+      handleChange: this.handleChange,
+      toOrder: this.handleToOrder
+    }
     if (this.state.isShow) {
       return
     }
@@ -81,12 +89,19 @@ class Cart extends React.Component {
   }
 
   render() {
-    let {cart} = this.props;
-    //    let total = this.handleCartTotal()
+    let {cart, toOrder} = this.props;
+    let enabledToOrder = cart.length > 0
+      ? true
+      : false;
+    let cartBtn = cx({
+      'cart-btn': true,
+      'cart-btn__disabled': !enabledToOrder
+    })
 
-    let cartBtn = cx({'cart-btn': true, 'cart-btn__disabled': true})
     return (
-      <div className={style['cart-wrap']}>
+      <div
+        id='cart'
+        className={style['cart-wrap']}>
         <div className={style['cart']}>
           <div
             className={style['cart-icon__wrap']}
@@ -101,7 +116,11 @@ class Cart extends React.Component {
             )}
             <div>配送费 ￥5</div>
           </div>
-          <div className={cartBtn}>
+          <div
+            className={cartBtn}
+            onClick={() => enabledToOrder
+            ? toOrder()
+            : false}>
             去结算
           </div>
         </div>

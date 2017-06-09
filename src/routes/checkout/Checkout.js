@@ -50,6 +50,20 @@ class Checkout extends React.Component {
                   </div>
                 </div>
               </li>
+              <li>
+                <div className={style['cart-pic']}>
+                  <img/>
+                </div>
+                <div className={style['cart-content']}>
+                  <div>
+                    <p>香菇睡了鸡</p>
+                    <span>x3</span>
+                  </div>
+                  <div className={style['cart-price']}>
+                    ￥88.00
+                  </div>
+                </div>
+              </li>
             </ul>
             <div className={style['cart-entry']}>
               <div className={style['cart-entry__item']}>

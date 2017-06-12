@@ -24,6 +24,7 @@ function RouterConfig({history, app}) {
         <Route path='list' component={List}/>
         <Route path='detail/:id' component={Detail}/> {/* <Route component={Wrap}>  </Route> */}
         <Route path='checkout' component={Checkout}/>
+        <Route path='order' component={Order}/>
       </Route>
     </Router>
   )

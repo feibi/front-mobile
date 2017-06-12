@@ -37,6 +37,18 @@ class Detail extends React.Component {
       }
     })
   }
+
+  handleClearAll = () => {
+    let {dispatch} = this.props;
+
+    dispatch({type: 'list/clearAll'})
+  }
+
+  handleToOrder = () => {
+    let {history} = this.props;
+    history.push('checkout')
+    console.log('toOrder')
+  }
   render() {
     const {location, params, cart, number, history} = this.props;
     const curCartItem = cart.find(item => item.id === params.id);
@@ -56,6 +68,13 @@ class Detail extends React.Component {
     const defaultNumber = curItem && curItem.quantity
       ? curItem.quantity
       : number;
+
+    let cartProps = {
+      cart,
+      clearAll: this.handleClearAll,
+      handleChange: this.handleChange,
+      toOrder: this.handleToOrder
+    }
     return (
       <div className={style['detail-container']}>
         <Banner/>
@@ -86,7 +105,7 @@ class Detail extends React.Component {
             <WhiteSpace size='md'/>
           </div>
         </div>
-        {/* <Cart history={history}/> */}
+        <Cart {...cartProps}/>
       </div>
     );
   }

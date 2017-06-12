@@ -46,12 +46,30 @@ class List extends React.Component {
     })
   }
 
+  handleClearAll = () => {
+    let {dispatch} = this.props;
+
+    dispatch({type: 'list/clearAll'})
+  }
+
+  handleToOrder = () => {
+    let {history} = this.props;
+    history.push('checkout')
+    console.log('toOrder')
+  }
+
   render() {
     let {history, cart} = this.props;
     let {contentHeight} = this.state;
     let ListContentProps = {
       cart,
       onChange: this.handleChange
+    }
+    let cartProps = {
+      cart,
+      clearAll: this.handleClearAll,
+      handleChange: this.handleChange,
+      toOrder: this.handleToOrder
     }
     console.log(this.state.contentHeight)
     return (
@@ -66,7 +84,7 @@ class List extends React.Component {
             <ListContent {...ListContentProps}/>
           </div>
         )}
-
+        <Cart {...cartProps}/>
       </div>
     );
   }

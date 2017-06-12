@@ -1,0 +1,35 @@
+:global(#root) {
+  :global(.swiper-layer) {
+    background: #ddd;
+    // left: 0;
+    // top: 0;
+    // position: fixed;
+    z-index: 100;
+    width: 100%;
+    height:200px;
+    transform: translate3d(0,0,0);
+  }
+
+
+}
+:global(.swiper-enter) {
+  // opacity: 0.01;
+  transform: translate3d(100%,0,0);
+}
+
+:global(.swiper-enter.swiper-enter-active) {
+  // opacity: 1;
+  transform: translate3d(0,0,0);
+  transition: all 500ms ease-in;
+}
+
+:global(.swiper-leave) {
+  // opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+.swiper-leave.swiper-leave-active {
+  // opacity: 0.01;
+transform: translate3d(100%,0,0);
+  transition: all 500ms ease-in;
+}

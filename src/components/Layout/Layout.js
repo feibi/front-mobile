@@ -73,7 +73,7 @@ class Layout extends React.Component {
         }}>
           {this.props.children}
         </div>
-        <Cart {...cartProps}/>
+        {/* <Cart {...cartProps}/> */}
       </div>
     )
   }

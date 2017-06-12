@@ -5,6 +5,7 @@ import {List} from 'antd-mobile';
 import ListItem from './ListItem';
 import style from './index.less';
 import foodList from '../../mock/foodList';
+
 const Item = List.Item;
 const Brief = Item.Brief;
 

@@ -10,9 +10,13 @@ class Checkout extends React.Component {
     super(props);
     this.state = {};
   }
+
+  handleRemark = () => {
+    console.log('remark')
+  }
   render() {
     return (
-      <div>
+      <div className={style['order-container']}>
         <WingBlank size="md">
           <WhiteSpace size="md"/>
           <List className="my-list">
@@ -88,9 +92,23 @@ class Checkout extends React.Component {
             <div className={style['cart-pay-info']}>
               总计￥232.00 优惠￥32.00 实付 ￥200.00
             </div>
-          </section>
-        </WingBlank>
 
+          </section>
+          <WhiteSpace size="md"/>
+          <List className="my-list">
+            <Item
+              arrow="horizontal"
+              onClick={this.handleRemark}>填写备注</Item>
+          </List>
+          <WhiteSpace size="md"/>
+        </WingBlank>
+        <div className={style["order-pay__bar"]}>
+          <div className={style['order-pay__info']}>
+            <span>已优惠32元</span>
+            <span>待支付 <i>￥200</i></span>
+          </div>
+          <span className={style['btn-submit']}>提交订单</span>
+        </div>
       </div>
     )
   }

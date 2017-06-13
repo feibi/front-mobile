@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {List, WingBlank, WhiteSpace} from 'antd-mobile';
+import {List, WingBlank, WhiteSpace, NavBar, TextareaItem} from 'antd-mobile';
+import Swiper from '../../components/Swiper';
 import style from './index.less';
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -8,12 +9,24 @@ const Brief = Item.Brief;
 class Checkout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      showRemark: false
+    };
   }
 
   handleRemark = () => {
+    this.setState({
+      showRemark: !this.state.showRemark
+    })
     console.log('remark')
   }
+
+  _handleBack = () => {
+    this.setState({
+      showRemark: !this.state.showRemark
+    })
+  }
+
   render() {
     return (
       <div className={style['order-container']}>
@@ -105,10 +118,24 @@ class Checkout extends React.Component {
         <div className={style["order-pay__bar"]}>
           <div className={style['order-pay__info']}>
             <span>已优惠32元</span>
-            <span>待支付 <i>￥200</i></span>
+            <span>待支付
+              <i>￥200</i>
+            </span>
           </div>
           <span className={style['btn-submit']}>提交订单</span>
         </div>
+        <Swiper show={this.state.showRemark}>
+          <NavBar
+            mode="light"
+            onLeftClick={this._handleBack}>
+            添加备注
+          </NavBar>
+          <WhiteSpace size="md"/>
+          <WingBlank size="md">
+            <TextareaItem rows={5} count={50}/>
+          </WingBlank>
+
+        </Swiper>
       </div>
     )
   }

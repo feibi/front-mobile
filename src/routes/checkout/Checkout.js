@@ -15,9 +15,9 @@ class Checkout extends React.Component {
   }
 
   handleRemark = () => {
-    this.setState({
-      showRemark: !this.state.showRemark
-    })
+    // this.setState({   showRemark:
+    // !this.state.showRemark })
+    this.props.history.push('/remark')
     console.log('remark')
   }
 
@@ -25,6 +25,11 @@ class Checkout extends React.Component {
     this.setState({
       showRemark: !this.state.showRemark
     })
+  }
+
+  _submitOrder = () => {
+    this.props.history.push('/pay')
+
   }
 
   render() {
@@ -122,7 +127,9 @@ class Checkout extends React.Component {
               <i>￥200</i>
             </span>
           </div>
-          <span className={style['btn-submit']}>提交订单</span>
+          <span
+            className={style['btn-submit']}
+            onClick={this._submitOrder}>提交订单</span>
         </div>
         <Swiper show={this.state.showRemark}>
           <NavBar

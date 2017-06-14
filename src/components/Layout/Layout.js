@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'dva';
 import {NavBar} from 'antd-mobile';
 import PropTypes from 'prop-types';
+import {RouteTransition, preset} from 'react-router-transition';
 import style from './style/index.less';
 import Cart from '../Cart/';
 
@@ -53,6 +54,33 @@ class Layout extends React.Component {
       handleChange: this.handleChange,
       toOrder: this.handleToOrder
     }
+    const popStateStyles = {
+      atEnter: {
+        translateX: -100
+      },
+      atLeave: {
+        translateX: 0
+      },
+      atActive: {
+        translateX: 0
+      }
+    }
+
+    const pushStateStyles = {
+      atEnter: {
+        translateX: 100
+      },
+      atLeave: {
+        translateX: 0
+      },
+      atActive: {
+        translateX: 0
+      }
+    }
+
+    const styles = this.props.location.action === 'POP'
+      ? popStateStyles
+      : pushStateStyles;
 
     return (
       <div className='container'>

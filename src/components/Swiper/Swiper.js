@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 const Swiper = ({children, show}) => (
   <div>
     <ReactCSSTransitionGroup

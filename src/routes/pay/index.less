@@ -1,7 +1,26 @@
-.pay-item{
+.pay-item {
   display: flex;
   align-items: center;
-  span{
+
+  span {
     margin-left: 20px;
   }
+
+  .am-icon-weixin {}
+}
+
+.pay-item__icon {
+  //color: #04C805;
+  display: inline-flex;
+
+  :global(.am-icon-weixin) {
+    fill: #04C805;
+  }
+  :global(.am-icon-alipay) {
+    fill:#01AAF0;
+  }
+
+}
+.btn-pay{
+  border-radius: 8px;
 }

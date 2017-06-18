@@ -1,8 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {List, WingBlank, WhiteSpace, NavBar, TextareaItem} from 'antd-mobile';
+import {
+  List,
+  WingBlank,
+  WhiteSpace,
+  NavBar,
+  TextareaItem,
+  Icon
+} from 'antd-mobile';
 import Swiper from '../../components/Swiper';
 import style from './index.less';
+const reduceIcon = require('!svg-sprite!../../svg/jian.svg');
+const locationIcon = require('!svg-sprite!../../svg/location.svg');
+const timeIcon = require('!svg-sprite!../../svg/time.svg');
 const Item = List.Item;
 const Brief = Item.Brief;
 
@@ -40,7 +50,9 @@ class Checkout extends React.Component {
           <List className="my-list">
             <Item
               arrow="horizontal"
-              thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+              thumb={(
+              <span className={style['icon-location']}><Icon type={locationIcon}/></span>
+            )}
               multipleLine
               onClick={() => {}}>
               上海市黄浦区西藏南路中山大楼15楼16F
@@ -49,7 +61,9 @@ class Checkout extends React.Component {
               </Brief>
             </Item>
             <Item
-              thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png">
+              thumb={(
+              <span className={style['icon-time']}><Icon type={timeIcon}/></span>
+            )}>
               立即送出
             </Item>
           </List>
@@ -89,26 +103,36 @@ class Checkout extends React.Component {
             </ul>
             <div className={style['cart-entry']}>
               <div className={style['cart-entry__item']}>
-                <span>满减优惠</span>
-                <span>-￥32.00</span>
+                <span>餐盒费</span>
+                <span>￥4.00</span>
               </div>
               <div className={style['cart-entry__item']}>
-                <span>满减优惠</span>
-                <span>-￥32.00</span>
+                <span>配送费</span>
+                <span>￥4.00</span>
               </div>
             </div>
-            <div className={style['cart-entry']}>
-              <div className={style['cart-entry__item']}>
-                <span>满减优惠</span>
-                <span>-￥32.00</span>
-              </div>
-              <div className={style['cart-entry__item']}>
-                <span>满减优惠</span>
-                <span>-￥32.00</span>
-              </div>
+            <div className={style['cart-discount']}>
+              <Item
+                extra={< span className = {
+                style['cut-price']
+              } > -￥32.00 < /span>}
+                onClick={() => {}}>
+                <p className={style['cut']}>
+                  <span className={style['icon-reduce']}><Icon type={reduceIcon}/></span>
+                  <span>满减优惠</span>
+                </p>
+              </Item>
+              <Item
+                extra="暂无可用"
+                arrow="horizontal"
+                onClick={() => {}}>代金券</Item>
             </div>
+
             <div className={style['cart-pay-info']}>
-              总计￥232.00 优惠￥32.00 实付 ￥200.00
+              <span>总计￥232.00 优惠￥32.00</span>
+              <span className={style['final-pay']}>实付
+                <i>￥200.00</i>
+              </span>
             </div>
 
           </section>
@@ -131,18 +155,6 @@ class Checkout extends React.Component {
             className={style['btn-submit']}
             onClick={this._submitOrder}>提交订单</span>
         </div>
-        <Swiper show={this.state.showRemark}>
-          <NavBar
-            mode="light"
-            onLeftClick={this._handleBack}>
-            添加备注
-          </NavBar>
-          <WhiteSpace size="md"/>
-          <WingBlank size="md">
-            <TextareaItem rows={5} count={50}/>
-          </WingBlank>
-
-        </Swiper>
       </div>
     )
   }

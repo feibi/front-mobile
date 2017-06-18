@@ -5,6 +5,7 @@ import {
   WhiteSpace,
   Radio,
   Icon,
+  Button,
   NavBar,
   TextareaItem
 } from 'antd-mobile';
@@ -36,7 +37,7 @@ class Pay extends React.Component {
         icon: aliPayIcon
       }, {
         value: 2,
-        label:'银行卡支付',
+        label: '银行卡支付',
         icon: yinlianIcon
       }
     ];
@@ -44,19 +45,25 @@ class Pay extends React.Component {
     return (
       <div>
         <WhiteSpace/>
-        <List>
-          {data.map(i => (
-            <RadioItem
-              key={i.value}
-              checked={value === i.value}
-              onChange={() => this.onChange(i.value)}>
-              <div className={style['pay-item']}>
-                <Icon type={i.icon}/>
-                <span>{i.label}</span>
-              </div>
-            </RadioItem>
-          ))}
-        </List>
+        <WingBlank  size="md">
+          <List>
+            {data.map(i => (
+              <RadioItem
+                key={i.value}
+                checked={value === i.value}
+                onChange={() => this.onChange(i.value)}>
+                <div className={style['pay-item']}>
+                  <span className={style['pay-item__icon']}><Icon type={i.icon}/></span>
+                  <span>{i.label}</span>
+                </div>
+              </RadioItem>
+            ))}
+          </List>
+          <WhiteSpace/>
+          <Button
+            className={style['btn-pay']}
+            type="primary">确认支付</Button>
+        </WingBlank>
       </div>
     );
   }

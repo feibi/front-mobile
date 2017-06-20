@@ -39,7 +39,10 @@ class Checkout extends React.Component {
 
   _submitOrder = () => {
     this.props.history.push('/pay')
+  }
 
+  _handleToAddress = () => {
+    this.props.history.push('/address')
   }
 
   render() {
@@ -54,7 +57,7 @@ class Checkout extends React.Component {
               <span className={style['icon-location']}><Icon type={locationIcon}/></span>
             )}
               multipleLine
-              onClick={() => {}}>
+              onClick={this._handleToAddress}>
               上海市黄浦区西藏南路中山大楼15楼16F
               <Brief>大熊先生
                 <span>17721456213</span>

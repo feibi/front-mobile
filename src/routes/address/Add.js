@@ -48,8 +48,17 @@ class Address extends React.Component {
   }
 
   render() {
-
+    const {value} = this.state;
     const {getFieldProps, getFieldError} = this.props.form;
+    const data = [
+      {
+        value: 0,
+        label: '男'
+      }, {
+        value: 1,
+        label: '女'
+      }
+    ];
     return (
       <div>
         <NavBar
@@ -60,14 +69,48 @@ class Address extends React.Component {
         )}>新增收货地址</NavBar>
         <WhiteSpace size="md"/>
         <form>
-          <List
-            renderHeader={() => '验证表单'}
-            renderFooter={() => getFieldError('account') && getFieldError('account').join(',')}>
+          <List renderHeader={() => '联系人'}>
             <InputItem
-              {...getFieldProps('password')}
-              placeholder="请输入密码"
-              type="password">
-              密码
+              {...getFieldProps('name')}
+              labelNumber={2}
+              placeholder="请填写收货人姓名"
+              type="input">
+              姓名:
+            </InputItem>
+            <Item>
+              <div className={style['radio-wrap']}>
+                {data.map(i => (
+                  <Radio
+                    key={i.value}
+                    checked={value === i.value}
+                    className={style['radio']}
+                    onChange={() => this.onChange(i.value)}>
+                    {i.label}</Radio>
+                ))}
+              </div>
+            </Item>
+            <InputItem
+              {...getFieldProps('telephone')}
+              labelNumber={2}
+              placeholder="请填写收货人的手机号码"
+              type="input">
+              电话:
+            </InputItem>
+          </List>
+          <List renderHeader={() => '详细地址'}>
+            <InputItem
+              {...getFieldProps('address')}
+              labelNumber={6}
+              placeholder="点击选择"
+              type="input">
+              小区/大厦/学校:
+            </InputItem>
+            <InputItem
+              {...getFieldProps('address')}
+              labelNumber={6}
+              placeholder="例：2号楼802室"
+              type="input">
+              楼号-门牌号:
             </InputItem>
           </List>
         </form>

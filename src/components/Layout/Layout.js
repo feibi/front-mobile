@@ -46,8 +46,24 @@ class Layout extends React.Component {
     history.push('checkout')
     console.log('toOrder')
   }
+
+  handleShowNavBar = () => {
+    const {location} = this.props;
+    const {pathname} = location;
+
+    switch (pathname) {
+      case '/address':
+        return false;
+        break;
+      case '/add':
+        return false;
+        break;
+      default:
+        return true
+    }
+  }
   render() {
-    let {cart} = this.props;
+    let {cart, location} = this.props;
     let cartProps = {
       cart,
       clearAll: this.handleClearAll,
@@ -84,24 +100,25 @@ class Layout extends React.Component {
 
     return (
       <div className='container'>
-        <header
-          id='header'
-          className={style['header']}>
-          <div
-            ref='header'
-            className={style['header-fixed']}>
-            <NavBar
-              mode="light"
-              onLeftClick={this._handleBack}>蒸的有味道</NavBar>
-          </div>
-        </header>
+        {this.handleShowNavBar() && (
+          <header
+            id='header'
+            className={style['header']}>
+            <div
+              ref='header'
+              className={style['header-fixed']}>
+              <NavBar
+                mode="light"
+                onLeftClick={this._handleBack}>蒸的有味道</NavBar>
+            </div>
+          </header>
+        )}
         <div
           style={{
           position: 'relative'
         }}>
           {this.props.children}
         </div>
-        {/* <Cart {...cartProps}/> */}
       </div>
     )
   }

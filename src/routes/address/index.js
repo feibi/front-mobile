@@ -1,2 +1,2 @@
-import Address from './Address'
+import Address from './AddressList'
 export default Address

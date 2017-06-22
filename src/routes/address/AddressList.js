@@ -7,11 +7,13 @@ import {
   TextareaItem,
   Radio,
   NavBar,
+  SwipeAction,
   Icon
 } from 'antd-mobile';
 import {connect} from 'react-redux'
 import style from './index.less'
 const addIcon = require('!svg-sprite!../../svg/add.svg');
+const deleteIcon = require('!svg-sprite!../../svg/delete.svg');
 const Item = List.Item;
 const RadioItem = Radio.RadioItem;
 
@@ -20,7 +22,8 @@ class Address extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0
+      value: 0,
+      isEdit: false
     };
   }
   onChange = (value) => {
@@ -31,12 +34,20 @@ class Address extends React.Component {
     let {history} = this.props;
     history.goBack()
   }
-  _handleToAdd=()=>{
+  _handleToAdd = () => {
     let {history} = this.props;
     history.push('/add')
   }
+
+  _handleSwitchEdit = () => {
+    this.setState({isEdit: true})
+  }
+
+  _handleFinish = () => {
+    this.setState({isEdit: false})
+  }
   render() {
-    const {value} = this.state;
+    const {value, isEdit} = this.state;
     const data = [
       {
         value: 0,
@@ -60,24 +71,47 @@ class Address extends React.Component {
         <NavBar
           mode="light"
           onLeftClick={this._handleBack}
-          rightContent={(<span onClick={this._handleToAdd}>管理</span>)}
-          >收货地址</NavBar>
+          rightContent={(
+          <div>
+            {isEdit
+              ? (
+                <span onClick={this._handleFinish}>完成</span>
+              )
+              : (
+                <span onClick={this._handleSwitchEdit}>管理</span>
+              )}
+          </div>
+        )}>收货地址</NavBar>
         <WhiteSpace size="md"/>
         <List>
           {data.map(i => (
-            <RadioItem
-              key={i.value}
-              checked={value === i.value}
-              onChange={() => this.onChange(i.value)}>
-              <p>{i.label}</p>
-              <div className={style['user']}>
-                <span>{i.name}</span>
-                <span>{i.telephone}</span>
-              </div>
-            </RadioItem>
+            <SwipeAction
+              right={[{
+                text: (
+                  <span><Icon type={deleteIcon}/></span>
+                ),
+                className: style['delete'],
+                onPress: () => console.log('delete')
+              }
+            ]}
+              onOpen={() => console.log('global open')}
+              onClose={() => console.log('global close')}>
+              <RadioItem
+                key={i.value}
+                checked={value === i.value}
+                onChange={() => this.onChange(i.value)}>
+                <p>{i.label}</p>
+                <div className={style['user']}>
+                  <span>{i.name}</span>
+                  <span>{i.telephone}</span>
+                </div>
+              </RadioItem>
+            </SwipeAction>
           ))}
         </List>
-        <div className={style['add-address']}>
+        <div
+          className={style['add-address']}
+          onClick={this._handleToAdd}>
           <Icon type={addIcon}/>新增收货地址
         </div>
       </div>

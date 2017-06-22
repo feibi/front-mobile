@@ -45,6 +45,10 @@ class Checkout extends React.Component {
     this.props.history.push('/address')
   }
 
+  _handleToVoucher = () => {
+    this.props.history.push('/voucher')
+  }
+
   render() {
     return (
       <div className={style['order-container']}>
@@ -128,7 +132,7 @@ class Checkout extends React.Component {
               <Item
                 extra="暂无可用"
                 arrow="horizontal"
-                onClick={() => {}}>代金券</Item>
+                onClick={this._handleToVoucher}>代金券</Item>
             </div>
 
             <div className={style['cart-pay-info']}>

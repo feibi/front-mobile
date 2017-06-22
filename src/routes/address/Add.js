@@ -99,7 +99,7 @@ class Address extends React.Component {
           </List>
           <List renderHeader={() => '详细地址'}>
             <InputItem
-              {...getFieldProps('address')}
+              {...getFieldProps('district')}
               labelNumber={6}
               placeholder="点击选择"
               type="input">

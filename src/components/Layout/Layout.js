@@ -54,10 +54,10 @@ class Layout extends React.Component {
     switch (pathname) {
       case '/address':
         return false;
-        break;
       case '/add':
         return false;
-        break;
+      case '/remark':
+        return false;
       default:
         return true
     }

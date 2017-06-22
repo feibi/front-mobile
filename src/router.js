@@ -10,6 +10,7 @@ import Remark from './routes/remark'
 import Pay from './routes/pay'
 import Address from './routes/address'
 import Add from './routes/address/Add'
+import Voucher from './routes/voucher'
 const cached = {};
 function registerModel(app, model) {
   if (!cached[model.namespace]) {
@@ -32,6 +33,7 @@ function RouterConfig({history, app}) {
         <Route path='pay' component={Pay}/>
         <Route path='address' component={Address}/>
         <Route path='add' component={Add}/>
+        <Route path='voucher' component={Voucher}/>
       </Route>
     </Router>
   )

@@ -22,6 +22,7 @@
     "react-dom": "^15.4.0",
     "react-router-scroll": "^0.4.2",
     "react-router-transition": "^0.1.1",
+    "react-scroll": "^1.5.3",
     "store": "^2.0.4"
   },
   "devDependencies": {

@@ -4741,6 +4741,13 @@ react-router@^2.8.1:
     loose-envify "^1.2.0"
     warning "^3.0.0"
 
+react-scroll@^1.5.3:
+  version "1.5.3"
+  resolved "http://registry.npm.taobao.org/react-scroll/download/react-scroll-1.5.3.tgz#6381fdd9a2f2f5ef0332f849863f651be2b8146b"
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.5.8"
+
 react-static-container@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/react-static-container/download/react-static-container-1.0.1.tgz#694c0dd68a896b879519afb548399cc1989c9ab0"

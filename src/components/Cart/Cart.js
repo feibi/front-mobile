@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'dva';
-import {Badge, Popup} from 'antd-mobile';
+import {Badge, Popup,Icon} from 'antd-mobile';
 import style from './style/index.less'
 import classNames from 'classnames/bind';
 
 import PopupContent from './PopupContent'
 let cx = classNames.bind(style);
-
+const wanIcon = require('!svg-sprite!../../svg/wan.svg');
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
 let maskProps;
 if (isIPhone) {
@@ -107,7 +107,8 @@ class Cart extends React.Component {
             className={style['cart-icon__wrap']}
             onClick={this.showCartList}>
             <Badge text={this.handleNumber()}>
-              <span className={style['cart-icon']}></span>
+              <Icon type={wanIcon}/>
+              {/* <span className={style['cart-icon']}></span> */}
             </Badge>
           </div>
           <div className="cart-info">

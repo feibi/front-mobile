@@ -99,7 +99,7 @@ class Order extends React.Component {
                     duration={500}
                     delay={1000}>Test 5 ( delay )</Link>
                 </li>
-                
+
               </ul>
             </div>
           </div>

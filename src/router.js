@@ -11,7 +11,7 @@ import Pay from './routes/pay'
 import Address from './routes/address'
 import Add from './routes/address/Add'
 import Voucher from './routes/voucher'
-import OrderDetail from './routes/OrderDetail'
+import OrderDetail from './routes/orderDetail'
 const cached = {};
 function registerModel(app, model) {
   if (!cached[model.namespace]) {

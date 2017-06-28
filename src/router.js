@@ -12,6 +12,7 @@ import Address from './routes/address'
 import Add from './routes/address/Add'
 import Voucher from './routes/voucher'
 import OrderDetail from './routes/orderDetail'
+import Evaluate from './routes/evaluate'
 const cached = {};
 function registerModel(app, model) {
   if (!cached[model.namespace]) {
@@ -21,12 +22,10 @@ function registerModel(app, model) {
 }
 function RouterConfig({history, app}) {
   return (
-    <Router
-      history={history}
-      render={applyRouterMiddleware(useScroll())}>
+    <Router history={history} render={applyRouterMiddleware(useScroll())}>
       <Route path='/' component={Layout}>
         <IndexRoute component={List}/>
-        <Route path='list'  component={List}/>
+        <Route path='list' component={List}/>
         <Route path='detail/:id' component={Detail}/>
         <Route path='checkout' component={Checkout}/>
         <Route path='remark' component={Remark}/>
@@ -36,6 +35,7 @@ function RouterConfig({history, app}) {
         <Route path='add' component={Add}/>
         <Route path='voucher' component={Voucher}/>
         <Route path='orderdetail/:id' component={OrderDetail}/>
+        <Route path='evaluate' component={Evaluate}/>
       </Route>
     </Router>
   )

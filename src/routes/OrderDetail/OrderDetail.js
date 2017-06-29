@@ -6,7 +6,7 @@ import style from './index.less';
 const OrderDetail = ({history}) => {
 
   function _handleToVoucher() {
-    history.push('/voucher')
+    history.push('/voucher');
   }
 
   return (
@@ -15,8 +15,7 @@ const OrderDetail = ({history}) => {
         <div className={style['detail-title']}>
           外卖订单详情
         </div>
-        <OrderInfo
-          handleToVoucher={_handleToVoucher}/>
+        <OrderInfo handleToVoucher={_handleToVoucher}/>
         <div className={style['detail-title']}>
           配送信息
         </div>

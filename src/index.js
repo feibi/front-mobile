@@ -16,7 +16,7 @@ app.use(createLoading());
 // 3. Model
 app.model(require('./models/detail'));
 app.model(require('./models/list'));
-
+app.model(require('./models/checkout'));
 // 4. Router
 app.router(require('./router'));
 

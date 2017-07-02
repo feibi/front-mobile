@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'dva';
 import {
   List,
   WingBlank,
@@ -17,6 +18,9 @@ const timeIcon = require('!svg-sprite!../../svg/time.svg');
 const Item = List.Item;
 const Brief = Item.Brief;
 
+@connect((state) => {
+  return {cart: state.list.cart}
+})
 class Checkout extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +33,7 @@ class Checkout extends React.Component {
     // this.setState({   showRemark:
     // !this.state.showRemark })
     this.props.history.push('/remark')
-    console.log('remark')
+    console.log('remark');
   }
 
   _handleBack = () => {

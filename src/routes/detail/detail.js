@@ -46,7 +46,7 @@ class Detail extends React.Component {
 
   handleToOrder = () => {
     let {history} = this.props;
-    history.push('/checkout')
+    history.push('/checkout/2')
     console.log('toOrder')
   }
   render() {

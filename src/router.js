@@ -27,7 +27,7 @@ function RouterConfig({history, app}) {
         <IndexRoute component={List}/>
         <Route path='list' component={List}/>
         <Route path='detail/:id' component={Detail}/>
-        <Route path='checkout' component={Checkout}/>
+        <Route path='checkout/:id' component={Checkout}/>
         <Route path='remark' component={Remark}/>
         <Route path='order' component={Order}/>
         <Route path='pay' component={Pay}/>

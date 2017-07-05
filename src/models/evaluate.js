@@ -1,7 +1,6 @@
-
 export default {
 
-  namespace: 'example',
+  namespace: 'evaluate',
 
   state: {},
 

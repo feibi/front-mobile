@@ -18,6 +18,7 @@ app.model(require('./models/detail'));
 app.model(require('./models/list'));
 app.model(require('./models/checkout'));
 app.model(require('./models/order'));
+app.model(require('./models/evaluate'));
 // 4. Router
 app.router(require('./router'));
 

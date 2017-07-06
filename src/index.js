@@ -3,7 +3,7 @@ import { browserHistory } from 'dva/router';
 import createLoading from 'dva-loading';
 //import { message } from 'antd';
 // import './index.html';
- import './index.css';
+import './index.css';
 
 // 1. Initialize
 const app = dva({
